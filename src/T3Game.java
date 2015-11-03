@@ -27,13 +27,16 @@ public class T3Game
     private static T3Board MyGameBoard;
     private static Scanner MyInputReader;
 
-    
+
     /*
     Here in main we provide some test code for constructing our own
     T3Board object. Whenever we use the keyword 'new', we are allocating
     memory for the object's variables, which are stored together, AND we
     invoke our object's constructor. That was the code in the T3Board file
     that loops through all our states and sets them to Available.
+
+    Furthermore, we now print the board using our 'toString()' function
+    we defined ourselves at label [2].
     */
     public static void main(String[] args)
     {
@@ -43,9 +46,9 @@ public class T3Game
         MyGameBoard = new T3Board();
         MyInputReader = new Scanner(System.in);
 
-        // [2] Once this line prints to the console, we know that the
-        // above lines have finished executing.
-        System.out.println("We have created a new board. ");
+        // [2] Print the initial state of the board.
+        String boardToPrint = MyGameBoard.toString();
+        System.out.println(boardToPrint);
 
         // [3] Here we invoke the scanner's 'nextLine()' function. This
         // will keep the program from exiting until you hit ENTER.

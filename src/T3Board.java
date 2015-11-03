@@ -43,5 +43,86 @@ public class T3Board
         }
     }
 
+    /*
+    We need a convenient way to represent the board as a String so we can
+    print it to the console. This method performs that computation. We loop
+    through the 2D array for the board and print symbols according to its state.
 
+    Ideal shape of the board (We make a plan before we start coding):
+
+    "  O |   |   ";
+    " --- --- ---";
+    "  X |   |   ";
+    " --- --- ---";
+    "  O | X |   ";
+
+    */
+    public String toString()
+    {
+        // The 'final' keyword means "constant" -- the
+        // value of these variables cannot be changed.
+        // They are declared for convenience.
+        final String NODE_EMPTY     =   "   ";
+        final String NODE_X         =   " X ";
+        final String NODE_O         =   " O ";
+
+        // String variable we will concat elements to
+        String boardString = "\r\n\r\n";
+
+        // For: each row in the 2D array
+        for (int i = 0; i < gameBoardSize; i++)
+        {
+            // Start with an empty space
+            boardString += " ";
+
+            // For: each column in the 2D array
+            for (int j = 0; j < gameBoardSize; j++)
+            {
+                // Concat the appropriate unit based on our
+                // game board state. This ensures we always
+                // print the proper character as game play
+                // continues.
+                switch(gameBoard[i][j])
+                {
+                    case X:
+                        boardString += NODE_X;
+                        break;
+                    case O:
+                        boardString += NODE_O;
+                        break;
+                    default:
+                        boardString += NODE_EMPTY;
+                        break;
+                }
+
+                // As long as we're not on our last column, print
+                // a grid-column separator. Otherwise, go to a new line.
+                if (j != gameBoardSize - 1)
+                    boardString += "|";
+                else
+                    boardString += "\r\n";
+            }
+
+            // As long as we're not on our last row, print a grid-row
+            // separator and a new line. Otherwise, print two new lines
+            // and finish the print job, because we are done.
+            if (i != gameBoardSize - 1)
+            {
+                for (int k = 0; k < gameBoardSize; k++)
+                {
+                    boardString += " ---";
+                }
+
+                boardString += "\r\n";
+            }
+            else
+            {
+                boardString += "\r\n\r\n";
+            }
+        }
+
+        // Return the string variable we've been concatenating to so
+        // it may be printed in the main program.
+        return boardString;
+    }
 }
