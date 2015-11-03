@@ -35,6 +35,9 @@ public class T3Game
     invoke our object's constructor. That was the code in the T3Board file
     that loops through all our states and sets them to Available.
 
+    ** We test our new method, playMove(int), at label [4] prior to printing
+        the board. Run the code. You'll see that it works.
+
     Furthermore, we now print the board using our 'toString()' function
     we defined ourselves at label [2].
     */
@@ -45,6 +48,16 @@ public class T3Game
         // any arguments in T3Board, so we don't need to provide any.
         MyGameBoard = new T3Board();
         MyInputReader = new Scanner(System.in);
+
+        // [4] Play some moves.
+        MyGameBoard.playMove(1);
+        MyGameBoard.playMove(8);
+        MyGameBoard.playMove(9);
+        
+        // Notice that these lines will cause faults. And the
+        // moves will NOT be played.
+        MyGameBoard.playMove(9);
+        MyGameBoard.playMove(10);
 
         // [2] Print the initial state of the board.
         String boardToPrint = MyGameBoard.toString();
