@@ -1,2 +1,2 @@
 # T3
-Tic-Tac-Toe example for my amazing girlfriend who's learning Java. 
+Tic-Tac-Toe example for any new programmer who's learning Java. 
